@@ -18,9 +18,9 @@ type Users struct {
 	Age         uint           `gorm:"not null" json:"age" form:"age" valid:"required~Your age is required"`
 	CreatedAt   *time.Time     `json:"created_at,omitempty"`
 	UpdatedAt   *time.Time     `json:"updated_at,omitempty"`
-	Photo       []Photos       `gorm:"foreignKey:Id;constraint:OnUpdate:CASCADE,OnDelete:SET NULL;" json:"photo"`
-	SocialMedia []SocialMedias `gorm:"foreignKey:Id;constraint:OnUpdate:CASCADE,OnDelete:SET NULL;" json:"social_media"`
-	Comment     []Comments     `gorm:"foreignKey:Id;constraint:OnUpdate:CASCADE,OnDelete:SET NULL;" json:"comment"`
+	Photo       []Photos       `gorm:"foreignKey:UserId;constraint:OnUpdate:CASCADE,OnDelete:SET NULL;" json:"photo"`
+	SocialMedia []SocialMedias `gorm:"foreignKey:UserId;constraint:OnUpdate:CASCADE,OnDelete:SET NULL;" json:"social_media"`
+	Comment     []Comments     `gorm:"foreignKey:UserId;constraint:OnUpdate:CASCADE,OnDelete:SET NULL;" json:"comment"`
 }
 
 func (u *Users) BeforeCreate(tx *gorm.DB) (err error) {
