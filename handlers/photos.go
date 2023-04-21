@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"go-final-project-mygram/helpers"
 	"go-final-project-mygram/models"
-	"net/http"
 
 	"github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"
@@ -32,7 +31,9 @@ func (h *HttpServer) CreatePhotos(c *gin.Context) {
 		helpers.CustomBadRequest(c, err)
 		return
 	}
-	c.JSON(http.StatusCreated, data)
+
+	msg := "Success create photo"
+	helpers.SuccessCreated(c, msg, data)
 }
 
 func (h *HttpServer) GetAllPhotos(c *gin.Context) {
@@ -44,7 +45,8 @@ func (h *HttpServer) GetAllPhotos(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusOK, data)
+	msg := "Success get all photos"
+	helpers.SuccessOk(c, msg, data)
 }
 
 func (h *HttpServer) GetPhotoById(c *gin.Context) {
@@ -57,7 +59,8 @@ func (h *HttpServer) GetPhotoById(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusOK, data)
+	msg := "Success get photo by id"
+	helpers.SuccessOk(c, msg, data)
 }
 
 func (h *HttpServer) UpdatePhotoById(c *gin.Context) {
@@ -85,7 +88,8 @@ func (h *HttpServer) UpdatePhotoById(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusOK, data)
+	msg := "Success update photo"
+	helpers.SuccessUpdated(c, msg, data)
 }
 
 func (h *HttpServer) DeletePhotoById(c *gin.Context) {
@@ -106,7 +110,6 @@ func (h *HttpServer) DeletePhotoById(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusOK, gin.H{
-		"message": "Success Delete Product",
-	})
+	msg := "Success delete photo"
+	helpers.SuccessDeleted(c, msg)
 }

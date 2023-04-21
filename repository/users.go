@@ -8,7 +8,7 @@ type UserInterface interface {
 }
 
 func (r Repository) RegisterUsers(req models.Users) (res models.Users, err error) {
-	err = r.db.Debug().Create(&req).Take(&res).Error
+	err = r.db.Debug().Create(&req).Scan(&res).Error
 	if err != nil {
 		return res, err
 	}
@@ -16,7 +16,7 @@ func (r Repository) RegisterUsers(req models.Users) (res models.Users, err error
 }
 
 func (r Repository) LoginUsers(req models.Users) (res models.Users, err error) {
-	err = r.db.Debug().Where("email = ?", req.Email).Take(&res).Error
+	err = r.db.Debug().Model(&res).Where("email = ?", req.Email).Scan(&res).Error
 	if err != nil {
 		return res, err
 	}

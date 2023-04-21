@@ -11,7 +11,7 @@ type SocialMediasInterface interface {
 }
 
 func (r Repository) CreateSocialMedia(req models.SocialMedias) (res models.SocialMedias, err error) {
-	err = r.db.Debug().Create(&req).Take(&res).Error
+	err = r.db.Debug().Create(&req).Scan(&res).Error
 	if err != nil {
 		return res, err
 	}
@@ -44,7 +44,7 @@ func (r Repository) UpdateSocialMediaById(id string, req models.SocialMedias) (r
 
 func (r Repository) DeleteSocialMediaById(id string) (err error) {
 	var socialMedia models.SocialMedias
-	err = r.db.Model(&socialMedia).Delete(&socialMedia, id).Error
+	err = r.db.Model(&socialMedia).Delete(&socialMedia, "id = ?", id).Error
 	if err != nil {
 		return err
 	}

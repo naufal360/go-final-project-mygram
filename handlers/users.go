@@ -3,7 +3,6 @@ package handlers
 import (
 	"go-final-project-mygram/helpers"
 	"go-final-project-mygram/models"
-	"net/http"
 
 	"github.com/gin-gonic/gin"
 )
@@ -37,11 +36,13 @@ func (h *HttpServer) UserRegister(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusCreated, gin.H{
+	newData := gin.H{
 		"id":       data.Id,
 		"email":    data.Email,
 		"username": data.Username,
-	})
+	}
+	msg := "Success create users"
+	helpers.SuccessCreated(c, msg, newData)
 }
 
 // LoginUsers godoc
@@ -70,7 +71,9 @@ func (h *HttpServer) UserLogin(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusOK, gin.H{
+	dataToken := gin.H{
 		"token": token,
-	})
+	}
+	msg := "Success login user"
+	helpers.SuccessOk(c, msg, dataToken)
 }

@@ -11,7 +11,7 @@ type CommentsInterface interface {
 }
 
 func (r Repository) CreateComment(req models.Comments) (res models.Comments, err error) {
-	err = r.db.Debug().Create(&req).Take(&res).Error
+	err = r.db.Debug().Create(&req).Scan(&res).Error
 	if err != nil {
 		return res, err
 	}
@@ -44,7 +44,7 @@ func (r Repository) UpdateCommentById(id string, req models.Comments) (res model
 
 func (r Repository) DeleteCommentById(id string) (err error) {
 	var comment models.Comments
-	err = r.db.Debug().Model(&comment).Delete(&comment, id).Error
+	err = r.db.Debug().Model(&comment).Delete(&comment, "id = ?", id).Error
 	if err != nil {
 		return err
 	}

@@ -11,7 +11,7 @@ type PhotosInterface interface {
 }
 
 func (r Repository) CreatePhoto(req models.Photos) (res models.Photos, err error) {
-	err = r.db.Debug().Create(&req).Take(&res).Error
+	err = r.db.Debug().Create(&req).Scan(&res).Error
 	if err != nil {
 		return res, err
 	}
@@ -35,7 +35,7 @@ func (r Repository) GetPhotoById(id string) (res models.Photos, err error) {
 }
 
 func (r Repository) UpdatePhotoById(id string, req models.Photos) (res models.Photos, err error) {
-	err = r.db.Debug().Model(&res).Where("id = ?", id).Updates(&req).Scan(&res).Error
+	err = r.db.Debug().Preload("Comment").Model(&res).Where("id = ?", id).Updates(&req).Scan(&res).Error
 	if err != nil {
 		return res, err
 	}
@@ -44,7 +44,7 @@ func (r Repository) UpdatePhotoById(id string, req models.Photos) (res models.Ph
 
 func (r Repository) DeletePhotoById(id string) (err error) {
 	var photo models.Photos
-	err = r.db.Debug().Model(&photo).Delete(&photo, id).Error
+	err = r.db.Debug().Model(&photo).Delete(&photo, "id = ?", id).Error
 	if err != nil {
 		return err
 	}
