@@ -32,4 +32,14 @@ func RegisterAPI(r *gin.Engine, app services.ServicesInterface) {
 		photosRouter.PUT("/:photoId", middlewares.PhotoAuthorization(), server.UpdatePhotoById)
 		photosRouter.DELETE("/:photoId", middlewares.PhotoAuthorization(), server.DeletePhotoById)
 	}
+
+	socialMediasRouter := r.Group("/socialmedias")
+	{
+		socialMediasRouter.Use(middlewares.Authentication())
+		socialMediasRouter.POST("/", server.CreateSocialMedia)
+		socialMediasRouter.GET("/", server.GetAllSocialMedias)
+		socialMediasRouter.GET("/:socialmediaId", server.GetSocialMediaById)
+		socialMediasRouter.PUT("/:socialmediaId", middlewares.SocialMediaAuthorization(), server.UpdateSocialMediaById)
+		socialMediasRouter.DELETE("/:socialmediaId", middlewares.SocialMediaAuthorization(), server.DeleteSocialMediaById)
+	}
 }

@@ -32,3 +32,26 @@ func PhotoAuthorization() gin.HandlerFunc {
 		c.Next()
 	}
 }
+
+func SocialMediaAuthorization() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		var repo = repository.NewRepository(config.GORM.DB)
+		socialMediaId := c.Param("socialmediaId")
+		userData := c.MustGet("userData").(jwt.MapClaims)
+		userId := userData["id"].(string)
+		SocialMedia := models.SocialMedias{}
+
+		SocialMedia, err := repo.GetSocialMediaById(socialMediaId)
+		if err != nil {
+			helpers.AbortNotFound(c, err)
+			return
+		}
+
+		if SocialMedia.UserId != userId {
+			helpers.AbortUnzuthorized(c, err)
+			return
+		}
+
+		c.Next()
+	}
+}

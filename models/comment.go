@@ -11,7 +11,7 @@ import (
 type Comments struct {
 	Id        string     `gorm:"primaryKey" json:"id"`
 	UserId    string     `json:"user_id"`
-	PhotoId   string     `json:"photo_id"`
+	PhotoId   string     `gorm:"not null" json:"photo_id" form:"photo_id" valid:"required~Your photo id is required"`
 	Message   string     `gorm:"not null" json:"message" form:"message" valid:"required~Your message is required"`
 	CreatedAt *time.Time `json:"created_at,omitempty"`
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
