@@ -27,7 +27,7 @@ func (r Repository) GetAllSocialMedias() (res []models.SocialMedias, err error) 
 }
 
 func (r Repository) GetSocialMediaById(id string) (res models.SocialMedias, err error) {
-	err = r.db.Debug().Model(&res).First(&res, id).Error
+	err = r.db.Debug().Model(&res).First(&res, "id = ?", id).Error
 	if err != nil {
 		return res, err
 	}

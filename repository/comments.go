@@ -27,7 +27,7 @@ func (r Repository) GetAllComments() (res []models.Comments, err error) {
 }
 
 func (r Repository) GetCommentById(id string) (res models.Comments, err error) {
-	err = r.db.Debug().Model(&res).First(&res, id).Error
+	err = r.db.Debug().Model(&res).First(&res, "id = ?", id).Error
 	if err != nil {
 		return res, err
 	}

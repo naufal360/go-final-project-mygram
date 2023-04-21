@@ -27,7 +27,7 @@ func (r Repository) GetAllPhotos() (res []models.Photos, err error) {
 }
 
 func (r Repository) GetPhotoById(id string) (res models.Photos, err error) {
-	err = r.db.Debug().Preload("Comment").Model(&res).First(&res, id).Error
+	err = r.db.Debug().Preload("Comment").Model(&res).First(&res, "id = ?", id).Error
 	if err != nil {
 		return res, err
 	}
