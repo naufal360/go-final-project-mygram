@@ -23,7 +23,7 @@ func SuccessCreated(c *gin.Context, msg string, data any) {
 }
 
 func SuccessUpdated(c *gin.Context, msg string, data any) {
-	c.JSON(http.StatusCreated, gin.H{
+	c.JSON(http.StatusOK, gin.H{
 		"error":   false,
 		"message": msg,
 		"data":    data,
@@ -31,7 +31,7 @@ func SuccessUpdated(c *gin.Context, msg string, data any) {
 }
 
 func SuccessDeleted(c *gin.Context, msg string) {
-	c.JSON(http.StatusCreated, gin.H{
+	c.JSON(http.StatusOK, gin.H{
 		"error":   false,
 		"message": msg,
 	})
