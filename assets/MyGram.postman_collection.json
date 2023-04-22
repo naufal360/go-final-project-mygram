@@ -1,0 +1,1557 @@
+{
+	"info": {
+		"_postman_id": "5f52bb73-c1ae-426f-8d8c-e37924bd15e5",
+		"name": "MyGram",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19210761"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "RegisterUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"ahmad\",\r\n    \"email\": \"ahmad@gmail.com\",\r\n    \"password\": \"password123\",\r\n    \"age\": 9\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/users/register",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "RegisterUserSuccess1",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"naufalfdl\",\r\n    \"email\": \"naufalfdl@gmail.com\",\r\n    \"password\": \"password123\",\r\n    \"age\": 23\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/users/register",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users",
+										"register"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Apr 2023 15:05:05 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "100"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"email\": \"naufalfdl@gmail.com\",\n        \"id\": \"u-6a17b93d-95fb-4ac3-9534-0f5c0d6a0cc5\",\n        \"username\": \"naufalfdl\"\n    },\n    \"error\": false,\n    \"message\": \"Success create users\"\n}"
+						},
+						{
+							"name": "RegisterUserSuccess2",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"naufal\",\r\n    \"email\": \"naufal@gmail.com\",\r\n    \"password\": \"password123\",\r\n    \"age\": 24\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/users/register",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users",
+										"register"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Apr 2023 15:48:15 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "150"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"email\": \"naufal@gmail.com\",\n        \"id\": \"u-ac7a47f6-da1a-435a-98c9-99a12ee0eec1\",\n        \"username\": \"naufal\"\n    },\n    \"error\": false,\n    \"message\": \"Success create users\"\n}"
+						},
+						{
+							"name": "RegisterUserFailedPasswordLength",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"ahmad\",\r\n    \"email\": \"ahmad@gmail.com\",\r\n    \"password\": \"password123\",\r\n    \"age\": 9\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/users/register",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users",
+										"register"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Apr 2023 16:41:17 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "93"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": true,\n    \"message\": \"Bad Request, Password has to have a minimum length of 6 characters\"\n}"
+						},
+						{
+							"name": "RegisterUserFailedAgeMinimum",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"ahmad\",\r\n    \"email\": \"ahmad@gmail.com\",\r\n    \"password\": \"password123\",\r\n    \"age\": 7\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/users/register",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users",
+										"register"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Apr 2023 16:41:49 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "71"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": true,\n    \"message\": \"Bad Request, Your age minimal is 9 years old\"\n}"
+						}
+					]
+				},
+				{
+					"name": "LoginUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"ahmad@gmail.com\",\r\n    \"password\": \"password123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/users/login",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "LoginUserSuccess1",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"naufalfdl@gmail.com\",\r\n    \"password\": \"password123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/users/login",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Apr 2023 15:05:08 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "196"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5hdWZhbGZkbEBnbWFpbC5jb20iLCJpZCI6InUtNmExN2I5M2QtOTVmYi00YWMzLTk1MzQtMGY1YzBkNmEwY2M1In0.Dx2y-k1YwrUbjd09ixA13PGbdeLDvyYJvzctIHWKrhQ\"\n    },\n    \"error\": false,\n    \"message\": \"Success login user\"\n}"
+						},
+						{
+							"name": "LoginUserSuccess2",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"naufal@gmail.com\",\r\n    \"password\": \"password123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/users/login",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Apr 2023 15:50:28 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "246"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5hdWZhbEBnbWFpbC5jb20iLCJpZCI6InUtYWM3YTQ3ZjYtZGExYS00MzVhLTk4YzktOTlhMTJlZTBlZWMxIn0.zr9rF2_6NR4pLGStWpfsI7_Fvwlxzr_Sv5b63tSfsTM\"\n    },\n    \"error\": false,\n    \"message\": \"Success login user\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Photos",
+			"item": [
+				{
+					"name": "CreatePhoto",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authUser}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"jakarta\",\r\n    \"caption\": \"lagi di jakarta\",\r\n    \"photo_url\": \"https://drive.google.com/file/d/1-GA8gZgaRAUpbQxOPPYW1XGyVjb8J_gA/view\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/photos",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"photos"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "CreatePhotoSucces1",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"jogja\",\r\n    \"caption\": \"lagi di jogja\",\r\n    \"photo_url\": \"https://drive.google.com/file/d/1-GA8gZgaRAUpbQxOPPYW1XGyVjb8J_gA/view\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/photos",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"photos"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Apr 2023 15:05:19 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "348"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"p-215ad0b2-4c77-4a22-848e-048b0d290ca6\",\n        \"title\": \"jogja\",\n        \"caption\": \"lagi di jogja\",\n        \"photo_url\": \"https://drive.google.com/file/d/1-GA8gZgaRAUpbQxOPPYW1XGyVjb8J_gA/view\",\n        \"user_id\": \"u-6a17b93d-95fb-4ac3-9534-0f5c0d6a0cc5\",\n        \"created_at\": \"2023-04-21T22:05:19.635442+07:00\",\n        \"updated_at\": \"2023-04-21T22:05:19.635442+07:00\",\n        \"user\": null,\n        \"comment\": null\n    },\n    \"error\": false,\n    \"message\": \"Success create photo\"\n}"
+						},
+						{
+							"name": "CreatePhotoSucces2",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"jakarta\",\r\n    \"caption\": \"lagi di jakarta\",\r\n    \"photo_url\": \"https://drive.google.com/file/d/1-GA8gZgaRAUpbQxOPPYW1XGyVjb8J_gA/view\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/photos",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"photos"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Apr 2023 15:52:48 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "408"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"p-fe58ec42-79f4-4db4-b4a6-ea641335418b\",\n        \"title\": \"jakarta\",\n        \"caption\": \"lagi di jakarta\",\n        \"photo_url\": \"https://drive.google.com/file/d/1-GA8gZgaRAUpbQxOPPYW1XGyVjb8J_gA/view\",\n        \"user_id\": \"u-ac7a47f6-da1a-435a-98c9-99a12ee0eec1\",\n        \"created_at\": \"2023-04-21T22:52:48.756964+07:00\",\n        \"updated_at\": \"2023-04-21T22:52:48.756964+07:00\",\n        \"user\": null,\n        \"comment\": null\n    },\n    \"error\": false,\n    \"message\": \"Success create photo\"\n}"
+						}
+					]
+				},
+				{
+					"name": "GetAllPhotos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authUser}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/photos",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"photos"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GetAllPhotosSuccess",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/photos",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"photos"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Apr 2023 15:52:55 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1834"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": \"p-215ad0b2-4c77-4a22-848e-048b0d290ca6\",\n            \"title\": \"jogja\",\n            \"caption\": \"lagi di jogja\",\n            \"photo_url\": \"https://drive.google.com/file/d/1-GA8gZgaRAUpbQxOPPYW1XGyVjb8J_gA/view\",\n            \"user_id\": \"u-6a17b93d-95fb-4ac3-9534-0f5c0d6a0cc5\",\n            \"created_at\": \"2023-04-21T22:05:19.635442+07:00\",\n            \"updated_at\": \"2023-04-21T22:05:19.635442+07:00\",\n            \"user\": null,\n            \"comment\": []\n        },\n        {\n            \"id\": \"p-24b39692-0aa0-4ec3-9aa0-3e7808eec59c\",\n            \"title\": \"jogja test 3\",\n            \"caption\": \"lagi di jogja 3\",\n            \"photo_url\": \"https://drive.google.com/file/d/1-GA8gZgaRAUpbQxOPPYW1XGyVjb8J_gA/view\",\n            \"user_id\": \"u-6a17b93d-95fb-4ac3-9534-0f5c0d6a0cc5\",\n            \"created_at\": \"2023-04-21T22:38:41.129642+07:00\",\n            \"updated_at\": \"2023-04-21T22:38:41.129642+07:00\",\n            \"user\": null,\n            \"comment\": []\n        },\n        {\n            \"id\": \"p-4f1ab5cd-b850-43bd-b6b4-f2d2d65ffeab\",\n            \"title\": \"jogja test 4\",\n            \"caption\": \"lagi di jogja 4\",\n            \"photo_url\": \"https://drive.google.com/file/d/1-GA8gZgaRAUpbQxOPPYW1XGyVjb8J_gA/view\",\n            \"user_id\": \"u-6a17b93d-95fb-4ac3-9534-0f5c0d6a0cc5\",\n            \"created_at\": \"2023-04-21T22:39:15.628247+07:00\",\n            \"updated_at\": \"2023-04-21T22:39:15.628247+07:00\",\n            \"user\": null,\n            \"comment\": []\n        },\n        {\n            \"id\": \"p-44d4c95d-788f-4860-becc-097757619736\",\n            \"title\": \"jogja update 2\",\n            \"caption\": \"lagi di jogja update 2\",\n            \"photo_url\": \"https://drive.google.com/file/d/1-GA8gZgaRAUpbQxOPPYW1XGyVjb8J_gA/view\",\n            \"user_id\": \"u-6a17b93d-95fb-4ac3-9534-0f5c0d6a0cc5\",\n            \"created_at\": \"2023-04-21T22:32:15.987637+07:00\",\n            \"updated_at\": \"2023-04-21T22:52:12.202852+07:00\",\n            \"user\": null,\n            \"comment\": []\n        },\n        {\n            \"id\": \"p-fe58ec42-79f4-4db4-b4a6-ea641335418b\",\n            \"title\": \"jakarta\",\n            \"caption\": \"lagi di jakarta\",\n            \"photo_url\": \"https://drive.google.com/file/d/1-GA8gZgaRAUpbQxOPPYW1XGyVjb8J_gA/view\",\n            \"user_id\": \"u-ac7a47f6-da1a-435a-98c9-99a12ee0eec1\",\n            \"created_at\": \"2023-04-21T22:52:48.756964+07:00\",\n            \"updated_at\": \"2023-04-21T22:52:48.756964+07:00\",\n            \"user\": null,\n            \"comment\": []\n        }\n    ],\n    \"error\": false,\n    \"message\": \"Success get all photos\"\n}"
+						}
+					]
+				},
+				{
+					"name": "GetPhotoById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authUser}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/photos/:photoId",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"photos",
+								":photoId"
+							],
+							"variable": [
+								{
+									"key": "photoId",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GetPhotoByIdSuccess",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/photos/p-4f1ab5cd-b850-43bd-b6b4-f2d2d65ffeab",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"photos",
+										"p-4f1ab5cd-b850-43bd-b6b4-f2d2d65ffeab"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Apr 2023 15:53:20 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "414"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"p-4f1ab5cd-b850-43bd-b6b4-f2d2d65ffeab\",\n        \"title\": \"jogja test 4\",\n        \"caption\": \"lagi di jogja 4\",\n        \"photo_url\": \"https://drive.google.com/file/d/1-GA8gZgaRAUpbQxOPPYW1XGyVjb8J_gA/view\",\n        \"user_id\": \"u-6a17b93d-95fb-4ac3-9534-0f5c0d6a0cc5\",\n        \"created_at\": \"2023-04-21T22:39:15.628247+07:00\",\n        \"updated_at\": \"2023-04-21T22:39:15.628247+07:00\",\n        \"user\": null,\n        \"comment\": []\n    },\n    \"error\": false,\n    \"message\": \"Success get photo by id\"\n}"
+						}
+					]
+				},
+				{
+					"name": "UpdatePhotoById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authUser}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"jogja update 2\",\r\n    \"caption\": \"lagi di jogja update 2\",\r\n    \"photo_url\": \"https://drive.google.com/file/d/1-GA8gZgaRAUpbQxOPPYW1XGyVjb8J_gA/view\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/photos/:photoId",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"photos",
+								":photoId"
+							],
+							"variable": [
+								{
+									"key": "photoId",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "UpdatePhotoByIdSuccess1",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"jogja update 2\",\r\n    \"caption\": \"lagi di jogja update 2\",\r\n    \"photo_url\": \"https://drive.google.com/file/d/1-GA8gZgaRAUpbQxOPPYW1XGyVjb8J_gA/view\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/photos/p-44d4c95d-788f-4860-becc-097757619736",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"photos",
+										"p-44d4c95d-788f-4860-becc-097757619736"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Apr 2023 15:52:12 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "422"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"p-44d4c95d-788f-4860-becc-097757619736\",\n        \"title\": \"jogja update 2\",\n        \"caption\": \"lagi di jogja update 2\",\n        \"photo_url\": \"https://drive.google.com/file/d/1-GA8gZgaRAUpbQxOPPYW1XGyVjb8J_gA/view\",\n        \"user_id\": \"u-6a17b93d-95fb-4ac3-9534-0f5c0d6a0cc5\",\n        \"created_at\": \"2023-04-21T22:32:15.987637+07:00\",\n        \"updated_at\": \"2023-04-21T22:52:12.202852+07:00\",\n        \"user\": null,\n        \"comment\": null\n    },\n    \"error\": false,\n    \"message\": \"Success update photo\"\n}"
+						}
+					]
+				},
+				{
+					"name": "DeletePhotoById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authUser}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/photos/:photoId",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"photos",
+								":photoId"
+							],
+							"variable": [
+								{
+									"key": "photoId",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "DeletePhotoByIdSuccess1",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/photos/p-4f1ab5cd-b850-43bd-b6b4-f2d2d65ffeab",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"photos",
+										"p-4f1ab5cd-b850-43bd-b6b4-f2d2d65ffeab"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Apr 2023 16:05:16 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "48"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": false,\n    \"message\": \"Success delete photo\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "SocialMedias",
+			"item": [
+				{
+					"name": "CreateSocialMedia",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authUser}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"ahmad naufal delete soon\",\r\n    \"social_media_url\": \"https://github.com/naufal360\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/socialmedias",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"socialmedias"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "CreateSocialMediaSuccess1",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"ahmad naufal\",\r\n    \"social_media_url\": \"https://github.com/naufal360\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/socialmedias",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"socialmedias"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Apr 2023 16:19:06 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "341"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"s-e0db7465-5422-484a-b24f-f40715700ca6\",\n        \"name\": \"ahmad naufal\",\n        \"social_media_url\": \"https://github.com/naufal360\",\n        \"user_id\": \"u-6a17b93d-95fb-4ac3-9534-0f5c0d6a0cc5\",\n        \"created_at\": \"2023-04-21T23:19:06.665922+07:00\",\n        \"updated_at\": \"2023-04-21T23:19:06.665922+07:00\",\n        \"user\": null\n    },\n    \"error\": false,\n    \"message\": \"Success create social media\"\n}"
+						}
+					]
+				},
+				{
+					"name": "GetAllSocialMedias",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authUser}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/socialmedias",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"socialmedias"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GetAllSocialMediasSuccess",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/socialmedias",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"socialmedias"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Apr 2023 16:19:42 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "345"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": \"s-e0db7465-5422-484a-b24f-f40715700ca6\",\n            \"name\": \"ahmad naufal\",\n            \"social_media_url\": \"https://github.com/naufal360\",\n            \"user_id\": \"u-6a17b93d-95fb-4ac3-9534-0f5c0d6a0cc5\",\n            \"created_at\": \"2023-04-21T23:19:06.665922+07:00\",\n            \"updated_at\": \"2023-04-21T23:19:06.665922+07:00\",\n            \"user\": null\n        }\n    ],\n    \"error\": false,\n    \"message\": \"Success get all social medias\"\n}"
+						}
+					]
+				},
+				{
+					"name": "GetSocialMediaById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authUser}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/socialmedias/:socialmediaId",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"socialmedias",
+								":socialmediaId"
+							],
+							"variable": [
+								{
+									"key": "socialmediaId",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GetSocialMediaByIdSuccess",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/socialmedias/s-e0db7465-5422-484a-b24f-f40715700ca6",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"socialmedias",
+										"s-e0db7465-5422-484a-b24f-f40715700ca6"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Apr 2023 16:20:47 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "344"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"s-e0db7465-5422-484a-b24f-f40715700ca6\",\n        \"name\": \"ahmad naufal\",\n        \"social_media_url\": \"https://github.com/naufal360\",\n        \"user_id\": \"u-6a17b93d-95fb-4ac3-9534-0f5c0d6a0cc5\",\n        \"created_at\": \"2023-04-21T23:19:06.665922+07:00\",\n        \"updated_at\": \"2023-04-21T23:19:06.665922+07:00\",\n        \"user\": null\n    },\n    \"error\": false,\n    \"message\": \"Success get social media by id\"\n}"
+						}
+					]
+				},
+				{
+					"name": "UpdateSocialMediaById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authUser}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"ahmad naufal fadhil\",\r\n    \"social_media_url\": \"https://github.com/naufal360\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/socialmedias/:socialmediaId",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"socialmedias",
+								":socialmediaId"
+							],
+							"variable": [
+								{
+									"key": "socialmediaId",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "UpdateSocialMediaByIdSuccess1",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"ahmad naufal fadhil\",\r\n    \"social_media_url\": \"https://github.com/naufal360\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/socialmedias/s-e0db7465-5422-484a-b24f-f40715700ca6",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"socialmedias",
+										"s-e0db7465-5422-484a-b24f-f40715700ca6"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Apr 2023 16:21:35 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "348"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"s-e0db7465-5422-484a-b24f-f40715700ca6\",\n        \"name\": \"ahmad naufal fadhil\",\n        \"social_media_url\": \"https://github.com/naufal360\",\n        \"user_id\": \"u-6a17b93d-95fb-4ac3-9534-0f5c0d6a0cc5\",\n        \"created_at\": \"2023-04-21T23:19:06.665922+07:00\",\n        \"updated_at\": \"2023-04-21T23:21:35.191421+07:00\",\n        \"user\": null\n    },\n    \"error\": false,\n    \"message\": \"Success update social media\"\n}"
+						}
+					]
+				},
+				{
+					"name": "DeleteSocialMediaById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authUser}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/socialmedias/:socialmediaId",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"socialmedias",
+								":socialmediaId"
+							],
+							"variable": [
+								{
+									"key": "socialmediaId",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "DeleteSocialMediaByIdSuccess1",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/socialmedias/s-364d1de8-c204-4334-aed2-04838f3a7793",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"socialmedias",
+										"s-364d1de8-c204-4334-aed2-04838f3a7793"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Apr 2023 16:22:34 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "55"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": false,\n    \"message\": \"Success delete social media\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Comments",
+			"item": [
+				{
+					"name": "CreateComment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authUser}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"photo_id\": \"p-215ad0b2-4c77-4a22-848e-048b0d290ca6\",\r\n    \"message\": \"jadi pengen kesana juga\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/comments",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"comments"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "CreateCommentSuccess",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"photo_id\": \"p-215ad0b2-4c77-4a22-848e-048b0d290ca6\",\r\n    \"message\": \"keren fotonya yaa\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/comments",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"comments"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 22 Apr 2023 01:10:02 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "359"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"c-2de15e8b-a490-41c7-82b7-f0d633d848d0\",\n        \"user_id\": \"u-7b997460-57a0-4f9f-9858-b79944fced49\",\n        \"photo_id\": \"p-215ad0b2-4c77-4a22-848e-048b0d290ca6\",\n        \"message\": \"keren fotonya yaa\",\n        \"created_at\": \"2023-04-22T08:10:02.670662+07:00\",\n        \"updated_at\": \"2023-04-22T08:10:02.670662+07:00\",\n        \"user\": null,\n        \"photo\": null\n    },\n    \"error\": false,\n    \"message\": \"Success create comment\"\n}"
+						}
+					]
+				},
+				{
+					"name": "GetAllComments",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authUser}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/comments",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"comments"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GetAllCommentsSuccess",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/comments",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"comments"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 22 Apr 2023 01:11:45 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "671"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": \"c-2de15e8b-a490-41c7-82b7-f0d633d848d0\",\n            \"user_id\": \"u-7b997460-57a0-4f9f-9858-b79944fced49\",\n            \"photo_id\": \"p-215ad0b2-4c77-4a22-848e-048b0d290ca6\",\n            \"message\": \"keren fotonya yaa\",\n            \"created_at\": \"2023-04-22T08:10:02.670662+07:00\",\n            \"updated_at\": \"2023-04-22T08:10:02.670662+07:00\",\n            \"user\": null,\n            \"photo\": null\n        },\n        {\n            \"id\": \"c-897bed0e-bdd0-45a0-9928-1a26438856bf\",\n            \"user_id\": \"u-ac7a47f6-da1a-435a-98c9-99a12ee0eec1\",\n            \"photo_id\": \"p-215ad0b2-4c77-4a22-848e-048b0d290ca6\",\n            \"message\": \"jadi pengen kesana juga\",\n            \"created_at\": \"2023-04-22T08:11:17.356659+07:00\",\n            \"updated_at\": \"2023-04-22T08:11:17.356659+07:00\",\n            \"user\": null,\n            \"photo\": null\n        }\n    ],\n    \"error\": false,\n    \"message\": \"Success get all comments\"\n}"
+						}
+					]
+				},
+				{
+					"name": "GetCommentById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authUser}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/comments/:commentId",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"comments",
+								":commentId"
+							],
+							"variable": [
+								{
+									"key": "commentId",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GetCommentByIdSuccess",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/comments/c-897bed0e-bdd0-45a0-9928-1a26438856bf",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"comments",
+										"c-897bed0e-bdd0-45a0-9928-1a26438856bf"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 22 Apr 2023 01:12:52 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "368"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"c-897bed0e-bdd0-45a0-9928-1a26438856bf\",\n        \"user_id\": \"u-ac7a47f6-da1a-435a-98c9-99a12ee0eec1\",\n        \"photo_id\": \"p-215ad0b2-4c77-4a22-848e-048b0d290ca6\",\n        \"message\": \"jadi pengen kesana juga\",\n        \"created_at\": \"2023-04-22T08:11:17.356659+07:00\",\n        \"updated_at\": \"2023-04-22T08:11:17.356659+07:00\",\n        \"user\": null,\n        \"photo\": null\n    },\n    \"error\": false,\n    \"message\": \"Success get comment by id\"\n}"
+						}
+					]
+				},
+				{
+					"name": "UpdateCommentById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authUser}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"message\": \"aku jadi pengen kesana juga dehh\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/comments/:commentId",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"comments",
+								":commentId"
+							],
+							"variable": [
+								{
+									"key": "commentId",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "UpdateCommentByIdSuccess",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"message\": \"aku jadi pengen kesana juga dehh\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/comments/c-897bed0e-bdd0-45a0-9928-1a26438856bf",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"comments",
+										"c-897bed0e-bdd0-45a0-9928-1a26438856bf"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 22 Apr 2023 01:14:21 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "374"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"c-897bed0e-bdd0-45a0-9928-1a26438856bf\",\n        \"user_id\": \"u-ac7a47f6-da1a-435a-98c9-99a12ee0eec1\",\n        \"photo_id\": \"p-215ad0b2-4c77-4a22-848e-048b0d290ca6\",\n        \"message\": \"aku jadi pengen kesana juga dehh\",\n        \"created_at\": \"2023-04-22T08:11:17.356659+07:00\",\n        \"updated_at\": \"2023-04-22T08:14:21.103968+07:00\",\n        \"user\": null,\n        \"photo\": null\n    },\n    \"error\": false,\n    \"message\": \"Success update comment\"\n}"
+						}
+					]
+				},
+				{
+					"name": "DeleteCommentById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authUser}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/comments/:commentId",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"comments",
+								":commentId"
+							],
+							"variable": [
+								{
+									"key": "commentId",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "DeleteCommentByIdSuccess",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/comments/c-50b81cd2-7ff3-4f84-96a7-69a163f60c85",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"comments",
+										"c-50b81cd2-7ff3-4f84-96a7-69a163f60c85"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 22 Apr 2023 01:16:02 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "50"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": false,\n    \"message\": \"Success delete comment\"\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "authUser",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5hdWZhbEBnbWFpbC5jb20iLCJpZCI6InUtYWM3YTQ3ZjYtZGExYS00MzVhLTk4YzktOTlhMTJlZTBlZWMxIn0.zr9rF2_6NR4pLGStWpfsI7_Fvwlxzr_Sv5b63tSfsTM",
+			"type": "string"
+		},
+		{
+			"key": "host",
+			"value": "localhost:8080",
+			"type": "string"
+		}
+	]
+}

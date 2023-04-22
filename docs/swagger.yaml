@@ -1,0 +1,667 @@
+definitions:
+  models.Comments:
+    properties:
+      created_at:
+        type: string
+      id:
+        type: string
+      message:
+        type: string
+      photo:
+        $ref: '#/definitions/models.Photos'
+      photo_id:
+        type: string
+      updated_at:
+        type: string
+      user:
+        $ref: '#/definitions/models.Users'
+      user_id:
+        type: string
+    type: object
+  models.Photos:
+    properties:
+      caption:
+        type: string
+      comment:
+        items:
+          $ref: '#/definitions/models.Comments'
+        type: array
+      created_at:
+        type: string
+      id:
+        type: string
+      photo_url:
+        type: string
+      title:
+        type: string
+      updated_at:
+        type: string
+      user:
+        $ref: '#/definitions/models.Users'
+      user_id:
+        type: string
+    type: object
+  models.SocialMedias:
+    properties:
+      created_at:
+        type: string
+      id:
+        type: string
+      name:
+        type: string
+      social_media_url:
+        type: string
+      updated_at:
+        type: string
+      user:
+        $ref: '#/definitions/models.Users'
+      user_id:
+        type: string
+    type: object
+  models.Users:
+    properties:
+      age:
+        type: integer
+      comment:
+        items:
+          $ref: '#/definitions/models.Comments'
+        type: array
+      created_at:
+        type: string
+      email:
+        type: string
+      id:
+        type: string
+      password:
+        type: string
+      photo:
+        items:
+          $ref: '#/definitions/models.Photos'
+        type: array
+      social_media:
+        items:
+          $ref: '#/definitions/models.SocialMedias'
+        type: array
+      updated_at:
+        type: string
+      username:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /comments:
+    get:
+      consumes:
+      - application/json
+      description: Get all comments
+      parameters:
+      - description: With the bearer started
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - type: object
+            - properties:
+                ' error':
+                  type: boolean
+                ' message':
+                  type: string
+                data:
+                  $ref: '#/definitions/models.Comments'
+              type: object
+      summary: Get all comments data
+      tags:
+      - comments
+    post:
+      consumes:
+      - application/json
+      description: Post details of comments corresponding to the input Id
+      parameters:
+      - description: With the bearer started
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: create comments
+        in: body
+        name: models.Comments
+        required: true
+        schema:
+          $ref: '#/definitions/models.Comments'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            allOf:
+            - type: object
+            - properties:
+                ' error':
+                  type: boolean
+                ' message':
+                  type: string
+                data:
+                  $ref: '#/definitions/models.Comments'
+              type: object
+      summary: Post a new comments data
+      tags:
+      - comments
+  /comments/{commentId}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a comment
+      parameters:
+      - description: With the bearer started
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: ID of the comments
+        in: path
+        name: Id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - type: object
+            - properties:
+                ' message':
+                  type: string
+                error:
+                  type: boolean
+              type: object
+      summary: Delete details of comments corresponding to the input Id
+      tags:
+      - comments
+    get:
+      consumes:
+      - application/json
+      description: Get all comments
+      parameters:
+      - description: With the bearer started
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: ID of the comments
+        in: path
+        name: Id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - type: object
+            - properties:
+                ' error':
+                  type: boolean
+                ' message':
+                  type: string
+                data:
+                  $ref: '#/definitions/models.Comments'
+              type: object
+      summary: Get details of comments corresponding to the input Id
+      tags:
+      - comments
+    put:
+      consumes:
+      - application/json
+      description: Update details of comments corresponding to the input Id
+      parameters:
+      - description: With the bearer started
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: ID of the comments
+        in: path
+        name: Id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - type: object
+            - properties:
+                ' error':
+                  type: boolean
+                ' message':
+                  type: string
+                data:
+                  $ref: '#/definitions/models.Comments'
+              type: object
+      summary: Update a comment data
+      tags:
+      - comments
+  /photos:
+    get:
+      consumes:
+      - application/json
+      description: Get all photos
+      parameters:
+      - description: With the bearer started
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - type: object
+            - properties:
+                ' error':
+                  type: boolean
+                ' message':
+                  type: string
+                data:
+                  $ref: '#/definitions/models.Photos'
+              type: object
+      summary: Get all photos data
+      tags:
+      - photos
+    post:
+      consumes:
+      - application/json
+      description: Post details of photos corresponding to the input Id
+      parameters:
+      - description: With the bearer started
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: create photo
+        in: body
+        name: models.Photos
+        required: true
+        schema:
+          $ref: '#/definitions/models.Photos'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            allOf:
+            - type: object
+            - properties:
+                ' error':
+                  type: boolean
+                ' message':
+                  type: string
+                data:
+                  $ref: '#/definitions/models.Photos'
+              type: object
+      summary: Post a new photos data
+      tags:
+      - photos
+  /photos/{photoId}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a photo
+      parameters:
+      - description: With the bearer started
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: ID of the photo
+        in: path
+        name: Id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - type: object
+            - properties:
+                ' message':
+                  type: string
+                error:
+                  type: boolean
+              type: object
+      summary: Delete details of photos corresponding to the input Id
+      tags:
+      - photos
+    get:
+      consumes:
+      - application/json
+      description: Get all photos
+      parameters:
+      - description: With the bearer started
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: ID of the photo
+        in: path
+        name: Id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - type: object
+            - properties:
+                ' error':
+                  type: boolean
+                ' message':
+                  type: string
+                data:
+                  $ref: '#/definitions/models.Photos'
+              type: object
+      summary: Get details of photos corresponding to the input Id
+      tags:
+      - photos
+    put:
+      consumes:
+      - application/json
+      description: Update details of photos corresponding to the input Id
+      parameters:
+      - description: With the bearer started
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: ID of the photo
+        in: path
+        name: Id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - type: object
+            - properties:
+                ' error':
+                  type: boolean
+                ' message':
+                  type: string
+                data:
+                  $ref: '#/definitions/models.Photos'
+              type: object
+      summary: Update a photo data
+      tags:
+      - photos
+  /socialmedias:
+    get:
+      consumes:
+      - application/json
+      description: Get all socialmedias
+      parameters:
+      - description: With the bearer started
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - type: object
+            - properties:
+                ' error':
+                  type: boolean
+                ' message':
+                  type: string
+                data:
+                  $ref: '#/definitions/models.SocialMedias'
+              type: object
+      summary: Get all socialmedias data
+      tags:
+      - socialmedias
+    post:
+      consumes:
+      - application/json
+      description: Post details of socialmedias corresponding to the input Id
+      parameters:
+      - description: With the bearer started
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: create social medias
+        in: body
+        name: models.SocialMedias
+        required: true
+        schema:
+          $ref: '#/definitions/models.SocialMedias'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            allOf:
+            - type: object
+            - properties:
+                ' error':
+                  type: boolean
+                ' message':
+                  type: string
+                data:
+                  $ref: '#/definitions/models.SocialMedias'
+              type: object
+      summary: Post a new socialmedias data
+      tags:
+      - socialmedias
+  /socialmedias/{socialmediaId}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a socialmedia
+      parameters:
+      - description: With the bearer started
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: ID of the social medias
+        in: path
+        name: Id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - type: object
+            - properties:
+                ' message':
+                  type: string
+                error:
+                  type: boolean
+              type: object
+      summary: Delete details of socialmedias corresponding to the input Id
+      tags:
+      - socialmedias
+    get:
+      consumes:
+      - application/json
+      description: Get all socialmedias
+      parameters:
+      - description: With the bearer started
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: ID of the social medias
+        in: path
+        name: Id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - type: object
+            - properties:
+                ' error':
+                  type: boolean
+                ' message':
+                  type: string
+                data:
+                  $ref: '#/definitions/models.SocialMedias'
+              type: object
+      summary: Get details of socialmedias corresponding to the input Id
+      tags:
+      - socialmedias
+    put:
+      consumes:
+      - application/json
+      description: Update details of socialmedias corresponding to the input Id
+      parameters:
+      - description: With the bearer started
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: ID of the social medias
+        in: path
+        name: Id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - type: object
+            - properties:
+                ' error':
+                  type: boolean
+                ' message':
+                  type: string
+                data:
+                  $ref: '#/definitions/models.SocialMedias'
+              type: object
+      summary: Update a socialmedia data
+      tags:
+      - socialmedias
+  /users/login:
+    post:
+      consumes:
+      - application/json
+      description: Post details of users corresponding to the input Id
+      parameters:
+      - description: login users
+        in: body
+        name: models.Users
+        required: true
+        schema:
+          $ref: '#/definitions/models.Users'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - type: object
+            - properties:
+                ' error':
+                  type: boolean
+                ' message':
+                  type: string
+                data:
+                  allOf:
+                  - type: object
+                  - properties:
+                      token:
+                        type: string
+                    type: object
+              type: object
+      summary: Post a login users data
+      tags:
+      - users
+  /users/register:
+    post:
+      consumes:
+      - application/json
+      description: Post details of users corresponding to the input Id
+      parameters:
+      - description: register users
+        in: body
+        name: models.Users
+        required: true
+        schema:
+          $ref: '#/definitions/models.Users'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            allOf:
+            - type: object
+            - properties:
+                ' error':
+                  type: boolean
+                ' message':
+                  type: string
+                data:
+                  allOf:
+                  - type: object
+                  - properties:
+                      ' email':
+                        type: string
+                      ' username':
+                        type: string
+                      id:
+                        type: string
+                    type: object
+              type: object
+      summary: Post a new users data
+      tags:
+      - users
+swagger: "2.0"
