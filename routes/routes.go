@@ -25,6 +25,7 @@ import (
 func RegisterAPI(r *gin.Engine, app services.ServicesInterface) {
 	server := handlers.NewHttpServer(app)
 
+	r.Use(middlewares.CORSMiddleware())
 	// Swagger
 	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerfiles.Handler))
 
