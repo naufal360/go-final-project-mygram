@@ -8,6 +8,7 @@ import (
 	"gorm.io/gorm"
 )
 
+// Photos represents the model for photos
 type Photos struct {
 	Id        string     `gorm:"primaryKey" json:"id"`
 	Title     string     `gorm:"not null" json:"title" form:"title" valid:"required~Your title is required"`

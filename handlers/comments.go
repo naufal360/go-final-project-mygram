@@ -9,6 +9,16 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// CreateComents godoc
+// @Summary Post a new comments data
+// @Description Post details of comments corresponding to the input Id
+// @Tags comments
+// @Accept json
+// @Produce json
+// @Param Authorization header string true "With the bearer started"
+// @Param models.Comments body models.Comments true "create comments"
+// @Success 201 {object} object{data=models.Comments, error=boolean, message=string}
+// @Router /comments [post]
 func (h *HttpServer) CreateComment(c *gin.Context) {
 	userData := c.MustGet("userData").(jwt.MapClaims)
 
@@ -36,6 +46,15 @@ func (h *HttpServer) CreateComment(c *gin.Context) {
 	helpers.SuccessCreated(c, msg, data)
 }
 
+// GetAllComments godoc
+// @Summary Get all comments data
+// @Description Get all comments
+// @Tags comments
+// @Accept json
+// @Produce json
+// @Param Authorization header string true "With the bearer started"
+// @Success 200 {object} object{data=models.Comments, error=boolean, message=string}
+// @Router /comments [get]
 func (h *HttpServer) GetAllComments(c *gin.Context) {
 
 	data, err := h.service.GetAllComments()
@@ -49,6 +68,16 @@ func (h *HttpServer) GetAllComments(c *gin.Context) {
 	helpers.SuccessOk(c, msg, data)
 }
 
+// GetCommentById godoc
+// @Summary Get details of comments corresponding to the input Id
+// @Description Get all comments
+// @Tags comments
+// @Accept json
+// @Produce json
+// @Param Authorization header string true "With the bearer started"
+// @Param Id path string true "ID of the comments"
+// @Success 200 {object} object{data=models.Comments, error=boolean, message=string}
+// @Router /comments/{commentId} [get]
 func (h *HttpServer) GetCommentById(c *gin.Context) {
 	commentId := c.Param("commentId")
 
@@ -63,6 +92,16 @@ func (h *HttpServer) GetCommentById(c *gin.Context) {
 	helpers.SuccessOk(c, msg, data)
 }
 
+// UpdateCommentById godoc
+// @Summary Update a comment data
+// @Description Update details of comments corresponding to the input Id
+// @Tags comments
+// @Accept json
+// @Produce json
+// @Param Authorization header string true "With the bearer started"
+// @Param Id path string true "ID of the comments"
+// @Success 200 {object} object{data=models.Comments, error=boolean, message=string}
+// @Router /comments/{commentId} [put]
 func (h *HttpServer) UpdateCommentById(c *gin.Context) {
 	userData := c.MustGet("userData").(jwt.MapClaims)
 	contentType := helpers.GetContentType(c)
@@ -92,6 +131,16 @@ func (h *HttpServer) UpdateCommentById(c *gin.Context) {
 	helpers.SuccessUpdated(c, msg, data)
 }
 
+// Delete CommentById godoc
+// @Summary Delete details of comments corresponding to the input Id
+// @Description Delete a comment
+// @Tags comments
+// @Accept json
+// @Produce json
+// @Param Authorization header string true "With the bearer started"
+// @Param Id path string true "ID of the comments"
+// @Success 200 {object} object{error=boolean, message=string}
+// @Router /comments/{commentId} [delete]
 func (h *HttpServer) DeleteCommentById(c *gin.Context) {
 	userData := c.MustGet("userData").(jwt.MapClaims)
 

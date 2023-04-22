@@ -12,11 +12,22 @@ import (
 	swaggerfiles "github.com/swaggo/files"
 )
 
+// @title MyGram API
+// @version 1.0
+// @description This is a service for mygram app API
+// @termsOfService http://swagger.io/terms/
+// @contact.name API Support
+// @contact.email soberkoder@swagger.io
+// @license.name Apache 2.0
+// @license.url http://www.apache.org/licenses/LICENSE=2.0.html
+// @host localhost:8080
+// @BasePath /
 func RegisterAPI(r *gin.Engine, app services.ServicesInterface) {
 	server := handlers.NewHttpServer(app)
 
 	// Swagger
 	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerfiles.Handler))
+
 	userRouter := r.Group("/users")
 	{
 		userRouter.POST("/register", server.UserRegister)

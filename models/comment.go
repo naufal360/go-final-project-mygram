@@ -8,6 +8,7 @@ import (
 	"gorm.io/gorm"
 )
 
+// Comments represents the model for comments
 type Comments struct {
 	Id        string     `gorm:"primaryKey" json:"id"`
 	UserId    string     `json:"user_id"`

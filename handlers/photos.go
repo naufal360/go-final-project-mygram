@@ -9,6 +9,16 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// CreatePhotos godoc
+// @Summary Post a new photos data
+// @Description Post details of photos corresponding to the input Id
+// @Tags photos
+// @Accept json
+// @Produce json
+// @Param Authorization header string true "With the bearer started"
+// @Param models.Photos body models.Photos true "create photo"
+// @Success 201 {object} object{data=models.Photos, error=boolean, message=string}
+// @Router /photos [post]
 func (h *HttpServer) CreatePhotos(c *gin.Context) {
 	userData := c.MustGet("userData").(jwt.MapClaims)
 
@@ -36,6 +46,15 @@ func (h *HttpServer) CreatePhotos(c *gin.Context) {
 	helpers.SuccessCreated(c, msg, data)
 }
 
+// GetAllPhotos godoc
+// @Summary Get all photos data
+// @Description Get all photos
+// @Tags photos
+// @Accept json
+// @Produce json
+// @Param Authorization header string true "With the bearer started"
+// @Success 200 {object} object{data=models.Photos, error=boolean, message=string}
+// @Router /photos [get]
 func (h *HttpServer) GetAllPhotos(c *gin.Context) {
 
 	data, err := h.service.GetAllPhotos()
@@ -49,6 +68,16 @@ func (h *HttpServer) GetAllPhotos(c *gin.Context) {
 	helpers.SuccessOk(c, msg, data)
 }
 
+// GetPhotoById godoc
+// @Summary Get details of photos corresponding to the input Id
+// @Description Get all photos
+// @Tags photos
+// @Accept json
+// @Produce json
+// @Param Authorization header string true "With the bearer started"
+// @Param Id path string true "ID of the photo"
+// @Success 200 {object} object{data=models.Photos, error=boolean, message=string}
+// @Router /photos/{photoId} [get]
 func (h *HttpServer) GetPhotoById(c *gin.Context) {
 	photoId := c.Param("photoId")
 
@@ -63,6 +92,16 @@ func (h *HttpServer) GetPhotoById(c *gin.Context) {
 	helpers.SuccessOk(c, msg, data)
 }
 
+// UpdatePhotoById godoc
+// @Summary Update a photo data
+// @Description Update details of photos corresponding to the input Id
+// @Tags photos
+// @Accept json
+// @Produce json
+// @Param Authorization header string true "With the bearer started"
+// @Param Id path string true "ID of the photo"
+// @Success 200 {object} object{data=models.Photos, error=boolean, message=string}
+// @Router /photos/{photoId} [put]
 func (h *HttpServer) UpdatePhotoById(c *gin.Context) {
 	userData := c.MustGet("userData").(jwt.MapClaims)
 	contentType := helpers.GetContentType(c)
@@ -92,6 +131,16 @@ func (h *HttpServer) UpdatePhotoById(c *gin.Context) {
 	helpers.SuccessUpdated(c, msg, data)
 }
 
+// Delete PhotoById godoc
+// @Summary Delete details of photos corresponding to the input Id
+// @Description Delete a photo
+// @Tags photos
+// @Accept json
+// @Produce json
+// @Param Authorization header string true "With the bearer started"
+// @Param Id path string true "ID of the photo"
+// @Success 200 {object} object{error=boolean, message=string}
+// @Router /photos/{photoId} [delete]
 func (h *HttpServer) DeletePhotoById(c *gin.Context) {
 	userData := c.MustGet("userData").(jwt.MapClaims)
 

@@ -17,8 +17,8 @@ var (
 // @Tags users
 // @Accept json
 // @Produce json
-// @Param models.User body models.User true "register users"
-// @Success 201 {object} models.User
+// @Param models.Users body models.Users true "register users"
+// @Success 201 {object} object{data=object{id=string, email=string, username=string}, error=boolean, message=string}
 // @Router /users/register [post]
 func (h *HttpServer) UserRegister(c *gin.Context) {
 	contentType := helpers.GetContentType(c)
@@ -51,8 +51,8 @@ func (h *HttpServer) UserRegister(c *gin.Context) {
 // @Tags users
 // @Accept json
 // @Produce json
-// @Param models.User body models.User true "login users"
-// @Success 200 {object} object{token=string}
+// @Param models.Users body models.Users true "login users"
+// @Success 200 {object} object{data=object{token=string}, error=boolean, message=string}
 // @Router /users/login [post]
 func (h *HttpServer) UserLogin(c *gin.Context) {
 	contentType := helpers.GetContentType(c)

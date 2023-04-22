@@ -10,6 +10,7 @@ import (
 	"gorm.io/gorm"
 )
 
+// Users represents the model for users
 type Users struct {
 	Id          string         `gorm:"primaryKey" json:"id"`
 	Username    string         `gorm:"not null;uniqueIndex" json:"username" form:"username" valid:"required~Your username is required"`

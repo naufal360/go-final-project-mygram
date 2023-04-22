@@ -8,6 +8,7 @@ import (
 	"gorm.io/gorm"
 )
 
+// SocialMedias represents the model for socialmedias
 type SocialMedias struct {
 	Id             string     `gorm:"primaryKey" json:"id"`
 	Name           string     `gorm:"not null" json:"name" form:"name" valid:"required~Your name is required"`
