@@ -37,6 +37,7 @@ func InitGorm() error {
 		Port:     os.Getenv("DB_PORT"),
 		Address:  os.Getenv("DB_HOST"),
 		Database: os.Getenv("DB_NAME"),
+		Password: os.Getenv("DB_PASSWORD"),
 	}
 
 	err := GORM.Gorm.OpenConnection()
