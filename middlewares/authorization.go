@@ -55,3 +55,26 @@ func SocialMediaAuthorization() gin.HandlerFunc {
 		c.Next()
 	}
 }
+
+func CommentAuthorization() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		var repo = repository.NewRepository(config.GORM.DB)
+		commentId := c.Param("commentId")
+		userData := c.MustGet("userData").(jwt.MapClaims)
+		userId := userData["id"].(string)
+		Comment := models.Comments{}
+
+		Comment, err := repo.GetCommentById(commentId)
+		if err != nil {
+			helpers.AbortNotFound(c, err)
+			return
+		}
+
+		if Comment.UserId != userId {
+			helpers.AbortUnzuthorized(c, err)
+			return
+		}
+
+		c.Next()
+	}
+}
