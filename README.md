@@ -9,6 +9,7 @@ Here's the ERD:
 ## For the local output
 
 1. Git clone first
+2. Use branch development to run locally in your device
 2. Set your .env
 3. Set your database (postgresql)
 4. Look after the postman file: ./assets/MyGram.postman_collection
