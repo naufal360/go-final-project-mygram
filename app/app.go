@@ -22,6 +22,7 @@ func StartApp() {
 	routes.RegisterAPI(router, app)
 
 	port := os.Getenv("APP_PORT")
+	router.Use(gin.Logger())
 	router.Use(gin.Recovery())
 	router.Run(fmt.Sprintf(":%s", port))
 }
